@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "url":"node ./src/downloadURL.js",
-    "playlist":"node ./src/downloadPlaylist.js",
-    "clean":"rm ./output/*.mp4 ./output/*.wav"
+    "url": "node ./src/downloadURL.js",
+    "playlist": "node ./src/downloadPlaylist.js",
+    "clean": "rm -f ./output/*.mp4 ./output/*.wav"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Prince-Thind/youtube-downloader#readme",
   "dependencies": {
+    "cli-progress": "^3.10.0",
     "ytdl-core": "^4.10.1",
     "ytpl": "^2.2.3"
   }
