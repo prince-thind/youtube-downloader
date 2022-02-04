@@ -17,6 +17,6 @@ async function main(url) {
 }
 
 async function getPlaylistArray(url) {
-  const res = await ytpl(url);
+  const res = await ytpl(url,{pages:Infinity});
   return res.items.map((item) => item.shortUrl);
 }
