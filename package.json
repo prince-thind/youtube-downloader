@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/Prince-Thind/youtube-downloader#readme",
   "dependencies": {
-    "youtube-playlist": "^1.0.4",
-    "ytdl-core": "^4.10.1"
+    "ytdl-core": "^4.10.1",
+    "ytpl": "^2.2.3"
   }
 }
