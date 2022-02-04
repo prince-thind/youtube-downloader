@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "url":"node ./src/downloadURL.js",
     "playlist":"node ./src/downloadPlaylist.js",
-    "clean":"rm ./output/*.mp4"
+    "clean":"rm ./output/*.mp4 ./output/*.wav"
   },
   "repository": {
     "type": "git",

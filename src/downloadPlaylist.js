@@ -1,4 +1,4 @@
-const download = require("./lib/download");
+const download= require("./lib/download");
 const ytpl = require("ytpl");
 const URL = process.argv[2];
 

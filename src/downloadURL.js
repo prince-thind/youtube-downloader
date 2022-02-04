@@ -7,4 +7,4 @@ if (!url) {
   return;
 }
 
-download(url, "video");
+download(url);
