@@ -1,0 +1,24 @@
+{
+  "name": "youtube-downloader",
+  "version": "1.0.0",
+  "description": "youtube-downloader",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prince-Thind/youtube-downloader.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prince-Thind/youtube-downloader/issues"
+  },
+  "homepage": "https://github.com/Prince-Thind/youtube-downloader#readme",
+  "dependencies": {
+    "youtube-playlist": "^1.0.4",
+    "ytdl-core": "^4.10.1"
+  }
+}
