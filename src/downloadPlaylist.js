@@ -1,5 +1,4 @@
 const download = require("./lib/download");
-const ytlist = require("youtube-playlist");
 const ytpl = require("ytpl");
 const URL = process.argv[2];
 
@@ -13,7 +12,7 @@ async function main(url) {
   const list = await getPlaylistArray(url);
   for (let i = 0; i < list.length; i++) {
     const videoUrl = list[i];
-    await download(videoUrl, 'video'+i);
+    await download(videoUrl, "video" + (i + 1));
   }
 }
 
