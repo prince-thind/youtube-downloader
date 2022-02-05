@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "url": "node ./src/downloadURL.js",
-    "playlist": "node ./src/downloadPlaylist.js",
+    "url": "npm run clean; node ./src/downloadURL.js",
+    "playlist": "npm run clean; node ./src/downloadPlaylist.js",
     "clean": "rm -f ./output/*.mp4 ./output/*.wav"
   },
   "repository": {
