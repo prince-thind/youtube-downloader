@@ -3,12 +3,10 @@ const ytdl = require("ytdl-core");
 const { exec } = require("child_process");
 const cliProgress = require("cli-progress");
 
-const audioBar = new cliProgress.SingleBar({
-  format: "Audio: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
+const progressBar = new cliProgress.SingleBar({
+  format: "{type}: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
 });
-const videoBar = new cliProgress.SingleBar({
-  format: "Video: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
-});
+
 
 async function download(url, name) {
   await clean();
@@ -16,20 +14,22 @@ async function download(url, name) {
   await downloadVideo(url);
   await merge(name);
   await clean();
+  progressBar.stop();
 }
 
 async function downloadAudio(url, name = "temp.wav", path = "./output/") {
-  audioBar.start(10000, 0);
+  progressBar.start(10000, 0,{
+    type:'Audio'
+  });
 
   return new Promise((resolve, reject) => {
     const stream = ytdl(url, { quality: "highestaudio" });
 
     stream.on("progress", (_, current, total) => {
-      trackProgress(audioBar, current, total);
+      trackProgress(progressBar, current, total);
     });
     stream.on("finish", () => {
       resolve();
-      audioBar.stop();
     });
     stream.on("error", (e) => {
       console.log(e);
@@ -40,18 +40,19 @@ async function downloadAudio(url, name = "temp.wav", path = "./output/") {
 }
 
 async function downloadVideo(url, name = "temp.mp4", path = "./output/") {
-  videoBar.start(10000, 0);
+  progressBar.start(10000, 0,{
+    type:'Video'
+  });
 
   return new Promise((resolve, reject) => {
     const stream = ytdl(url, { quality: "highestvideo" });
 
     stream.on("progress", (_, current, total) => {
-      trackProgress(videoBar, current, total);
+      trackProgress(progressBar, current, total);
     });
 
     stream.on("finish", () => {
       resolve();
-      videoBar.stop();
     });
     stream.on("error", (e) => {
       reject(e);
