@@ -20,8 +20,10 @@
   },
   "homepage": "https://github.com/Prince-Thind/youtube-downloader#readme",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "cli-progress": "^3.10.0",
     "dialog-node": "^0.2.1",
+    "fluent-ffmpeg": "^2.1.2",
     "ytdl-core": "^4.10.1",
     "ytpl": "^2.2.3"
   }

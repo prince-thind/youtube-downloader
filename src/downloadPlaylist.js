@@ -5,11 +5,13 @@ const dialog = require('dialog-node');
 
 dialog.entry('Enter Playlist Url', "Youtube Downloader", 0, handleInput);
 
-function handleInput(exitCode, input, stderr) {
+async function handleInput(exitCode, input, stderr) {
   if (exitCode != 0) return;
   if (!input) return console.error('no input was specified. Terminating!')
 
-  main(input)
+  await main(input);
+  console.log('You may now exit')
+  process.stdin.resume();
 }
 
 async function main(url) {

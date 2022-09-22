@@ -1,9 +1,11 @@
 const fs = require("fs");
 const ytdl = require("ytdl-core");
-const { exec } = require("child_process");
 const cliProgress = require("cli-progress");
+const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
+const ffmpeg = require('fluent-ffmpeg');
 
 
+ffmpeg.setFfmpegPath(ffmpegPath);
 
 
 async function download(url, name) {
@@ -82,30 +84,45 @@ async function downloadVideo(url, name = "temp.mp4", path = "./output/") {
 }
 
 async function removeTempFiles() {
-  const command = "rm -f ./output/temp.mp4 ./output/temp.wav";
-  await executeCommand(command);
+  if (fs.existsSync('./output/temp.wav'))
+    fs.unlinkSync('./output/temp.wav');
+
+  if (fs.existsSync('./output/temp.mp4'))
+    fs.unlinkSync('./output/temp.mp4');
 }
 
 async function merge(name = "video") {
-  const command = `ffmpeg -y -i ./output/temp.mp4 -i ./output/temp.wav -c:v copy -c:a aac ./output/${name}.mp4`;
-  console.log('merging...')
-  await executeCommand(command);
-  console.log('merging finished!')
 
-}
-
-async function executeCommand(command) {
-  return new Promise((resolve, reject) => {
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`exec error: ${error}`);
-        reject(error);
-      }
-      // console.log(`stdout: ${stdout}`);
-      // console.error(`stderr: ${stderr}`);
-      resolve();
-    });
+  const progressBar = new cliProgress.SingleBar({
+    format: "{type}: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
   });
+
+  progressBar.start(10000, 0, {
+    type: 'Merging'
+  });
+
+
+  return new Promise((resolve, reject) => {
+    ffmpeg()
+      .addInput('./output/temp.mp4')
+      .addInput('./output/temp.wav')
+      .saveToFile(`./output/${name}.mp4`)
+      .on('progress', (progress) => {
+        trackProgress(progressBar, progress.percent, 100);
+      })
+      .on('end', () => {
+        resolve();
+        trackProgress(progressBar, 100, 100);
+        progressBar.stop();
+
+      })
+      .on('err', function (err) {
+        console.log('erron in ffmpeg: ' + err.message);
+        reject();
+      })
+     
+
+  })
 }
 
 function trackProgress(progressBar, current, total) {
