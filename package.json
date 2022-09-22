@@ -6,7 +6,7 @@
   "scripts": {
     "url": "node ./src/downloadURL.js",
     "playlist": "node ./src/downloadPlaylist.js",
-    "clean": "rm -rf ./output"
+    "clean": "rm -rf ./output ./dist"
   },
   "repository": {
     "type": "git",
@@ -27,4 +27,5 @@
     "ytdl-core": "^4.10.1",
     "ytpl": "^2.2.3"
   }
+ 
 }
