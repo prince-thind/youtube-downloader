@@ -3,45 +3,63 @@ const ytdl = require("ytdl-core");
 const { exec } = require("child_process");
 const cliProgress = require("cli-progress");
 
-const progressBar = new cliProgress.SingleBar({
-  format: "{type}: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
-});
+
 
 
 async function download(url, name) {
-  await clean();
+  await mkdirOutput();
   await downloadAudio(url);
   await downloadVideo(url);
   await merge(name);
-  await clean();
-  progressBar.stop();
+  await removeTempFiles();
+}
+
+async function mkdirOutput() {
+  const outputExists = fs.existsSync('./output/');
+  if (outputExists) return;
+
+  fs.mkdirSync('./output');
 }
 
 async function downloadAudio(url, name = "temp.wav", path = "./output/") {
-  progressBar.start(10000, 0,{
-    type:'Audio'
+
+  const progressBar = new cliProgress.SingleBar({
+    format: "{type}: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
   });
 
+  progressBar.start(10000, 0, {
+    type: 'Audio'
+  });
+
+
   return new Promise((resolve, reject) => {
-    const stream = ytdl(url, { quality: "highestaudio" });
+    const stream = ytdl(url, { filter: 'audioonly' });
+    stream.pipe(fs.createWriteStream(path + name));
+
 
     stream.on("progress", (_, current, total) => {
       trackProgress(progressBar, current, total);
     });
     stream.on("finish", () => {
       resolve();
+      progressBar.stop();
+
     });
     stream.on("error", (e) => {
       console.log(e);
       reject(e);
     });
-    stream.pipe(fs.createWriteStream(path + name));
   });
 }
 
 async function downloadVideo(url, name = "temp.mp4", path = "./output/") {
-  progressBar.start(10000, 0,{
-    type:'Video'
+
+  const progressBar = new cliProgress.SingleBar({
+    format: "{type}: [{bar}] {percentage}% | ETA: {eta}s | {value}/{total}",
+  });
+
+  progressBar.start(10000, 0, {
+    type: 'Video'
   });
 
   return new Promise((resolve, reject) => {
@@ -53,6 +71,8 @@ async function downloadVideo(url, name = "temp.mp4", path = "./output/") {
 
     stream.on("finish", () => {
       resolve();
+      progressBar.stop();
+
     });
     stream.on("error", (e) => {
       reject(e);
@@ -61,14 +81,17 @@ async function downloadVideo(url, name = "temp.mp4", path = "./output/") {
   });
 }
 
-async function clean() {
+async function removeTempFiles() {
   const command = "rm -f ./output/temp.mp4 ./output/temp.wav";
   await executeCommand(command);
 }
 
 async function merge(name = "video") {
-  const command = `ffmpeg -i ./output/temp.mp4 -i ./output/temp.wav -c:v copy -c:a aac ./output/${name}.mp4`;
+  const command = `ffmpeg -y -i ./output/temp.mp4 -i ./output/temp.wav -c:v copy -c:a aac ./output/${name}.mp4`;
+  console.log('merging...')
   await executeCommand(command);
+  console.log('merging finished!')
+
 }
 
 async function executeCommand(command) {

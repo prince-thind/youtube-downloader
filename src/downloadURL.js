@@ -1,10 +1,11 @@
 const download = require("./lib/download");
+const dialog = require('dialog-node');
 
-const url = process.argv[2];
+dialog.entry('Enter Video Url', "Youtube Downloader", 0, handleInput);
 
-if (!url) {
-  console.error("error processing url: ", url);
-  return;
+function handleInput(exitCode, input, stderr) {
+  if (exitCode != 0) return;
+  if (!input) return console.error('no input was specified. Terminating!')
+
+  download(input)
 }
-
-download(url);
