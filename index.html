@@ -5,12 +5,28 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <script src="./index.js"></script>
+    <script src="./index.js" defer></script>
     <title>Youtube Downloader</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <form id="form"></form>
+    <form id="form">
+        <label>Enter URL: <input type="text" required name="url"> </label>
+        <label>Video<input type="radio" required name="url" value="video"></label>
+        <label>Playlist<input type="radio" required name="url" value="video"></label>
+        <label>Highest Quality: <select name="quality" id="quality">
+                <option value="144">144p</option>
+                <option value="240">240p</option>
+                <option value="360">360p</option>
+                <option value="480">480p</option>
+                <option value="720">720p</option>
+                <option value="1080">1080p</option>
+                <option value="2160">2160p</option>
+            </select></label>
+        <label>Output Directory <button id="dir-picker">Pick</button><input type="text" id="dir-input" disabled required name="dir" value="/"></label>
+        <button>Submit</button>
+    </form>
 
 </body>
 

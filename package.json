@@ -20,6 +20,7 @@
   "homepage": "https://github.com/prince-thind/youtube-downloader#readme",
   "devDependencies": {
     "electron": "^21.1.1",
+    "electron-reloader": "^1.2.3",
     "nodemon": "^2.0.20"
   }
 }

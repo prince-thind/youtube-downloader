@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 const path = require('path')
 
 const createWindow = () => {
@@ -11,8 +11,7 @@ const createWindow = () => {
     })
 
     mainWindow.loadFile('index.html')
-
-    mainWindow.webContents.openDevTools()
+    // mainWindow.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {
@@ -21,8 +20,26 @@ app.whenReady().then(() => {
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
+
+    ipcMain.handle('dialog:openDir', handleDirOpen)
+
 })
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
+
+
+async function handleDirOpen() {
+    const { canceled, filePaths } = await dialog.showOpenDialog({ properties: ['openDirectory'] })
+    if (canceled) {
+        return null;
+    } else {
+        return filePaths[0]
+    }
+}
+
+
+try {
+    require('electron-reloader')(module)
+} catch (_) { }
