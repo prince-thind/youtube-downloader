@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: radial-gradient(hsl(0, 0%, 90%), hsl(0, 0%, 50%));
+}
+
+.error {
+  margin-top: 1rem;
+  color: red;
+}
+.form {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form fieldset {
+  padding: 1rem;
+}
+.form label {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+.form input,
+.form select {
+  display: inline-block;
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+}
+.radio-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.radio-buttons input {
+  height: 2rem;
+  width: 2rem;
+  margin: 0 0.5rem;
+}
+.form button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+}
+.form .download-button {
+  display: block;
+  margin: auto;
+}
+.form .dir-label {
+  flex-direction: column;
+}
+.form .dir-input {
+  width: 100%;
+  margin: auto;
+}
+
+.progress-container {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-evenly;
+}
+
+.hidden {
+  opacity: 0;
+}

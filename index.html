@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <script src="./index.js" defer type="module"></script>
+    <title>Youtube Downloader</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <form id="form" class="form">
+        <fieldset>
+            <label>Enter URL: <input type="text" required name="url"> </label>
+            <div class="radio-buttons">
+                <label>Video<input checked type="radio" required name="type" value="video"></label>
+                <label>Playlist<input type="radio" required name="type" value="playlist"></label>
+            </div>
+
+            <label>Highest Quality: <select name="quality" id="quality">
+                    <option value="144">144p</option>
+                    <option value="240">240p</option>
+                    <option value="360">360p</option>
+                    <option value="480">480p</option>
+                    <option value="720">720p</option>
+                    <option value="1080">1080p</option>
+                </select></label>
+            <label class="dir-label">
+                <div>
+                    Output Directory: <button id="dir-picker">Pick</button>
+                    <input type="hidden" id="dir-input-hidden" >
+                </div>
+           <input type="text" name="dir-input" class="dir-input" id="dir-input" required >
+        </label>
+            <button class="download-button">Download</button>
+            <div class="progress-container">
+                <p class="percentage-label hidden">Waiting ...</p>
+                <progress id="progress" value="0" max="100">
+            </div>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>
