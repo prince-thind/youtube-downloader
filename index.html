@@ -13,7 +13,7 @@
 <body>
     <form id="form" class="form">
         <fieldset>
-            <label>Enter URL: <input type="text" required name="url"> </label>
+            <label>Enter URL: <input type="text" required name="url" value="url"> </label>
             <div class="radio-buttons">
                 <label>Video<input checked type="radio" required name="type" value="video"></label>
                 <label>Playlist<input type="radio" required name="type" value="playlist"></label>
@@ -35,7 +35,7 @@
                         <input type="file" nwdirectory id="dir-input-hidden">
                     </label>
                 </div>
-                <input type="text" placeholder="Enter Directory Path" name="dir-input" class="dir-input" id="dir-input" required>
+                <input type="text" placeholder="Enter Directory Path" value="/home/prince" name="dir" class="dir-input" id="dir-input" required>
             </div>
 
             <button class="download-button">Download</button>
