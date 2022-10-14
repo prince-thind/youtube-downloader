@@ -5,10 +5,17 @@ import processInput from "./lib/processInput.js";
 UI.dirInputHidden.addEventListener('change', pickDir);
 UI.form.addEventListener('submit', main);
 
-function main(e){
+async function main(e) {
     e.preventDefault()
-    const res=(Object.fromEntries(new FormData(e.target)));
-    processInput(res);
+    const res = (Object.fromEntries(new FormData(e.target)));
+
+    try {
+        await processInput(res);
+    }
+    catch (e) {
+        console.error(e);
+        UI.updateError(e)
+    }
 
 }
 
