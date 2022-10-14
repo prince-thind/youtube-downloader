@@ -13,20 +13,20 @@
 <body>
     <form id="form" class="form">
         <fieldset>
-            <label>Enter URL: <input type="text" required name="url" value="url"> </label>
+            <label>Enter URL: <input type="text" required name="url" value="https://www.youtube.com/watch?v=dQw4w9WgXcQ"> </label>
             <div class="radio-buttons">
                 <label>Video<input checked type="radio" required name="type" value="video"></label>
                 <label>Playlist<input type="radio" required name="type" value="playlist"></label>
             </div>
 
-            <label>Highest Quality: <select name="quality" id="quality">
+            <!-- <label>Highest Quality: <select name="quality" id="quality">
                     <option value="144">144p</option>
                     <option value="240">240p</option>
                     <option value="360">360p</option>
                     <option value="480">480p</option>
                     <option value="720">720p</option>
                     <option value="1080">1080p</option>
-                </select></label>
+                </select></label> -->
             <div>
                 <div class="dir-input-container">
                     Output Directory:
@@ -35,7 +35,7 @@
                         <input type="file" nwdirectory id="dir-input-hidden">
                     </label>
                 </div>
-                <input type="text" placeholder="Enter Directory Path" value="/home/prince" name="dir" class="dir-input"
+                <input type="text" placeholder="Enter Directory Path" value="/home/prince/Desktop/test" name="dir" class="dir-input"
                     id="dir-input" required>
             </div>
 
