@@ -31,11 +31,19 @@ body {
   padding: 1rem 0;
   font-size: 1.5rem;
 }
+
 .form input,
 .form select {
   display: inline-block;
   padding: 0.5rem;
   margin-left: 0.5rem;
+}
+.form .cookie-label{
+  font-size: 1rem;
+  padding: 0;
+}
+.cookie-label input{
+  padding:0.2rem;
 }
 .radio-buttons {
   display: flex;
