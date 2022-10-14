@@ -19,6 +19,7 @@
   "homepage": "https://github.com/prince-thind/youtube-downloader#readme",
   "dependencies": {
     "nw": "^0.69.1",
+    "stream": "^0.0.2",
     "ytdl-core": "^4.11.2"
   }
 }
