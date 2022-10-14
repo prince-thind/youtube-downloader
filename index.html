@@ -27,16 +27,20 @@
                     <option value="720">720p</option>
                     <option value="1080">1080p</option>
                 </select></label>
-            <label class="dir-label">
-                <div>
-                    Output Directory: <button id="dir-picker">Pick</button>
-                    <input type="hidden" id="dir-input-hidden" >
+            <div> 
+                <div class="dir-input-container">
+                    Output Directory:
+                    <label class="dir-label">
+                        <div class="dir-picker">Pick</div>
+                        <input type="file" nwdirectory id="dir-input-hidden">
+                    </label>
                 </div>
-           <input type="text" name="dir-input" class="dir-input" id="dir-input" required >
-        </label>
+                <input type="text" placeholder="Enter Directory Path" name="dir-input" class="dir-input" id="dir-input" required>
+            </div>
+
             <button class="download-button">Download</button>
             <div class="progress-container">
-                <p class="percentage-label hidden">Waiting ...</p>
+                <p class="percentage-label">Awaiting Input..</p>
                 <progress id="progress" value="0" max="100">
             </div>
         </fieldset>

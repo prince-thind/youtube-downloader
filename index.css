@@ -50,18 +50,39 @@ body {
 .form button {
   padding: 0.5rem 1rem;
   margin: 0.5rem;
+  cursor: pointer;
+
 }
 .form .download-button {
   display: block;
-  margin: auto;
+  margin: 1rem auto;
 }
-.form .dir-label {
-  flex-direction: column;
-}
+
 .form .dir-input {
   width: 100%;
   margin: auto;
 }
+
+.dir-input-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+.dir-picker{
+  padding: 0.2rem 0.5rem;
+  border:1px solid black;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  background-color: hsl(0, 0%, 90%);
+  border-radius: 10%;
+}
+
+.dir-input-container input{
+  display: none;
+}
+
 
 .progress-container {
   display: flex;
