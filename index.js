@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import processInput from './lib/downloader/processInput.js';
 import initIO from './lib/io/io.js';
 
 const app = express();
@@ -12,7 +13,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-   console.log(req.body)
+   processInput(req.body)
 })
 
 const server = app.listen(3000);

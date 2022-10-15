@@ -3,7 +3,7 @@ const socket = io();
 const dirPickerButton = document.querySelector('#dir-label');
 const dirInput = document.querySelector('#dir-input');
 const form = document.querySelector('#form');
-const progress = document.querySelector('#progress');
+const progressBar = document.querySelector('#progress');
 const progressLabel = document.querySelector('#progress-label');
 const error = document.querySelector('#error');
 
@@ -15,10 +15,10 @@ socket.on('dir-picked', (dir) => {
     dirInput.value = dir;
 })
 
-socket.on('update-progress', ({ progress, message }) => {
+socket.on('progress', ({ progress, message }) => {
     const percentage = progress.toFixed(2)
-    UI.progress.value = percentage;
-    UI.progressLabel.textContent = `${message}: ${percentage}%`
+    progressBar.value = percentage;
+    progressLabel.textContent = `${message}: ${percentage}%`
 })
 
 function pickDir(e) {
