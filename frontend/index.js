@@ -5,9 +5,11 @@ const dirInput = document.querySelector('#dir-input');
 const form = document.querySelector('#form');
 const progressBar = document.querySelector('#progress');
 const progressLabel = document.querySelector('#progress-label');
-const error = document.querySelector('#error');
+const stopButton = document.querySelector('#stop-button');
+const errorDiv = document.querySelector('#error');
 
 dirPickerButton.addEventListener('click', pickDir);
+stopButton.addEventListener('click', stop);
 form.addEventListener('submit', submitForm);
 
 
@@ -19,6 +21,10 @@ socket.on('progress', ({ progress, message }) => {
     const percentage = progress.toFixed(2)
     progressBar.value = percentage;
     progressLabel.textContent = `${message}: ${percentage}%`
+})
+
+socket.on('error',(err)=>{
+    errorDiv.textContent = err;
 })
 
 function pickDir(e) {
@@ -37,4 +43,9 @@ function submitForm(e) {
         },
         body: JSON.stringify(formData),
     })
+}
+
+function stop(e){
+    e.preventDefault();
+    socket.emit('stop')
 }

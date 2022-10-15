@@ -12,8 +12,14 @@ app.get('/', (req, res) => {
    res.sendFile(path.resolve('./frontend/index.html'))
 })
 
-app.post('/', (req, res) => {
-   processInput(req.body)
+app.post('/', async (req, res) => {
+   try {
+      await processInput(req.body)
+   }
+   catch (e) {
+      console.log(e);
+      io.emit('error', e)
+   }
 })
 
 const server = app.listen(3000);

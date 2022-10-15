@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <script src = "/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="./index.js" defer type="module"></script>
     <title>Youtube Downloader</title>
     <link rel="stylesheet" href="index.css">
@@ -56,7 +56,10 @@
                     class="dir-input" id="dir-input" required>
             </div>
 
-            <button class="download-button">Download</button>
+            <div class="buttons">
+                <button class="download-button">Download</button>
+                <button class="stop-button" id="stop-button">Stop</button>
+            </div>
             <div class="progress-container">
                 <p id="progress-label">Awaiting Input..</p>
                 <progress id="progress" value="0" max="100">

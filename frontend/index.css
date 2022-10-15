@@ -99,8 +99,7 @@
     cursor: pointer;
   }
   .form .download-button {
-    display: block;
-    margin: 1rem auto;
+    margin: 1rem 0;
   }
   
   .form .dir-input {
@@ -127,6 +126,11 @@
   
   .dir-input-container input {
     display: none;
+  }
+  .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .progress-container {
