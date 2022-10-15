@@ -24,5 +24,9 @@
     "stream": "^0.0.2",
     "ytdl-core": "^4.11.2",
     "ytpl": "^2.3.0"
+  },
+  "window":{
+    "width":500,
+    "height":500
   }
 }

@@ -6,44 +6,81 @@
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background: radial-gradient(hsl(0, 0%, 90%), hsl(0, 0%, 50%));
+  background-color: hsl(0, 0%, 9%);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* background: radial-gradient(hsl(0, 0%, 90%), hsl(0, 0%, 50%)); */
 }
+
+/* utility classes */
 
 .error {
   color: red;
   text-align: center;
   margin-top: 1rem;
 }
+
+.hidden {
+  opacity: 0;
+}
+
+/* main classes */
+.heading{
+  background-color: hsl(39, 50%, 25%);
+  padding:0.5rem;
+  border-bottom: 1px solid white;
+}
+
 .form {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex:1;
 }
 
 .form fieldset {
   padding: 1rem;
+  background-color: hsl(20, 20%, 15%);
+  /* box-shadow: 5px 5px 10px 5px gray; */
+  box-shadow: 0 3px 10px hsl(0, 0%, 50%);
 }
+
 .form label {
   display: flex;
   align-items: center;
   padding: 1rem 0;
   font-size: 1.5rem;
+  justify-content: space-between;
 }
 
 .form input,
 .form select {
-  display: inline-block;
+  /* display: inline-block; */
   padding: 0.5rem;
   margin-left: 0.5rem;
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 0.3rem;
+  border:1px solid gray;
+  /* border: 0.5rem ridge hsl(0, 50%, 25%); */
 }
-.form .cookie-label{
+
+.form .cookie-label {
   font-size: 1rem;
   padding: 0;
 }
-.cookie-label input{
-  padding:0.2rem;
+.cookie-label input {
+  padding: 0.2rem 0.5rem;
+}
+.cookie-label>div{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  flex:1;
 }
 .radio-buttons {
   display: flex;
@@ -60,7 +97,6 @@ body {
   padding: 0.5rem 1rem;
   margin: 0.5rem;
   cursor: pointer;
-
 }
 .form .download-button {
   display: block;
@@ -72,33 +108,29 @@ body {
   margin: auto;
 }
 
-.dir-input-container{
+.dir-input-container {
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
 }
-.dir-picker{
+.dir-picker {
   padding: 0.2rem 0.5rem;
-  border:1px solid black;
+  border: 1px solid black;
   cursor: pointer;
   margin-left: 0.5rem;
   font-size: 1.2rem;
   background-color: hsl(0, 0%, 90%);
   border-radius: 10%;
+  color:black;
 }
 
-.dir-input-container input{
+.dir-input-container input {
   display: none;
 }
-
 
 .progress-container {
   display: flex;
   margin-top: 1rem;
   justify-content: space-evenly;
-}
-
-.hidden {
-  opacity: 0;
 }
