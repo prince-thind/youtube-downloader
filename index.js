@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import open from 'open';
 import processInput from './lib/downloader/processInput.js';
 import initIO from './lib/io/io.js';
 
@@ -18,11 +19,16 @@ app.post('/', async (req, res) => {
    }
    catch (e) {
       console.log(e);
-      io.emit('error', e)
+      io.emit('error', e.message)
    }
 })
 
 const server = app.listen(3000);
 const io = initIO(server);
+
+openApp();
+async function openApp() {
+   await open('http://localhost:3000');
+}
 
 export { io }
