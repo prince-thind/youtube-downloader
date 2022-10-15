@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "nw ."
+    "start": "nw .",
+    "dist": "build --tasks linux-x64 --mirror https://dl.nwjs.io/ .",
+    "exec": "run --x86 --mirror https://dl.nwjs.io/ ."
   },
   "repository": {
     "type": "git",
@@ -21,12 +23,16 @@
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "fluent-ffmpeg": "^2.1.2",
     "nw": "^0.69.1",
+    "nwjs-builder-phoenix": "^1.15.0",
     "stream": "^0.0.2",
     "ytdl-core": "^4.11.2",
     "ytpl": "^2.3.0"
   },
-  "window":{
-    "width":500,
-    "height":500
+  "window": {
+    "width": 500,
+    "height": 500
+  },
+  "build": {
+    "nwVersion": "0.69.1"
   }
 }
