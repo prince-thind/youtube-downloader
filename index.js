@@ -12,5 +12,7 @@ app.get('/', (req, res) => {
 })
 
 
-const server=app.listen(3000);
-initIO(server);
+const server = app.listen(3000);
+const io = initIO(server);
+
+export { io }
