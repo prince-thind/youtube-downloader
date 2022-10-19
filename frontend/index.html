@@ -34,19 +34,20 @@
                     Video<input checked type="radio" name="type" value="video"></label>
                 <label class="radio-label">Playlist<input type="radio" name="type" value="playlist"></label>
             </div>
-            <div class="index-inputs disabled">
+            <div class="index-inputs disabled" id="index-inputs">
                 <label class="text-label form-element">
                     <div>
                         Starting Video Number:
                     </div>
                     <input type="text" required name="index-start" id="index-start" placeholder="First Video Number"
-                        value="1">
+                        disabled value="1">
                 </label>
                 <label class="text-label form-element">
                     <div>
                         Last Video Number:
                     </div>
-                    <input type="text" name="index-end" id="index-end" placeholder="Leave Empty for all" value="">
+                    <input type="text" name="index-end" id="index-end" placeholder="Leave Empty for all" value=""
+                        disabled>
                 </label>
             </div>
             <label class="text-label form-element">
@@ -60,7 +61,7 @@
                 <button id="stop-button" class="button">Stop</button>
             </div>
         </form>
-        <div class="progress-container">
+        <div class="progress-container" id="progress-container">
             <div id="progress-text" class="progress-text">Waiting:</div>
             <div id="progress-text" class="progress-percentage"></div>
             <progress id="progress" class="progress" value="0" max="100">
