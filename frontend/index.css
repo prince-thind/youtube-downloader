@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background: radial-gradient(hsl(120, 20%, 50%), hsl(120, 20%, 25%));
+  min-height: 100vh;
+  color: hsl(0, 0%, 95%);
+}
+
+.heading {
+  padding: 0.3em;
+  background-color: hsl(120, 20%, 10%);
+}
+
+.form {
+  width: fit-content;
+  width: 70vmin;
+  margin: 1rem auto;
+  background-color: hsl(120, 20%, 10%);
+  padding: 1.5em;
+  padding-bottom: 0.5em;
+  border-radius: 1rem;
+  font-size: 1.3rem;
+}
+
+.form-element {
+  display: block;
+  margin-bottom:0.5em;
+
+}
+.text-label input {
+  width: 100%;
+  padding: 0.5em;
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid gray;
+  border-radius: 0.4rem;
+  margin-top:0.5em;
+}
+.radio-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radio-label input {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 0.5rem;
+}
+.button{
+  padding:0.5em 1em;
+  background-color: hsl(240, 50%, 25%);
+  cursor: pointer;
+  color:white;
+  border-radius: 5px;
+}
+.button:hover{
+  transform: scale(1.05);
+  background-color: hsl(240, 50%, 10%);
+}
+.pick-button{
+  padding:0.2em 1em;
+}
+.control-buttons{
+  display: flex;
+  justify-content: center;
+  gap:1em;
+}
+.progress-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 8fr;
+  padding:0 1em;
+  text-align: center;
+}
+/* .progress{
+  width: 100%;
+  height: 1rem;
+  background-color: white;
+  appearance: none;
+  border-radius: 2rem;
+}
+.progress-error.progress::-moz-progress-bar { background: hsl(0, 80%, 40%); }
+.progress-error.progress::-webkit-progress-value{ background: hsl(0, 80%, 40%); } */
+
+
+.error{
+  color:hsl(0, 80%, 40%);
+  text-shadow: 1px 1px 1px black;
+  text-align: center;
+  font-size: 1.2rem;
+  padding:0 1rem;
+}

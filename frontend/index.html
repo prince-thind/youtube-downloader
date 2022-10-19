@@ -15,56 +15,57 @@
         <h1 class="heading">Youtube Downloader</h1>
     </header>
     <main>
-        <form id="form">
-            <label class="text-label">
+        <form id="form" class="form">
+            <label class="text-label form-element">
                 <div>
                     URL:
                 </div>
                 <input type="text" required name="url" placeholder="URL">
             </label>
-            <label class="text-label">
+            <label class="text-label form-element">
                 <div>
                     <span title="Your Youtube Cookie, read readme for more info">&#9432;</span>
                     Cookie (optional):
                 </div>
                 <input type="text" name="cookie" placeholder="cookie">
             </label>
-            <div class="radio-buttons" id="radio-buttons">
-                <label class="radio-label">Video<input checked type="radio" name="type" value="video"></label>
+            <div class="radio-buttons form-element" id="radio-buttons">
+                <label class="radio-label">
+                    Video<input checked type="radio" name="type" value="video"></label>
                 <label class="radio-label">Playlist<input type="radio" name="type" value="playlist"></label>
             </div>
             <div class="index-inputs disabled">
-                <label class="text-label">
+                <label class="text-label form-element">
                     <div>
                         Starting Video Number:
                     </div>
                     <input type="text" required name="index-start" id="index-start" placeholder="First Video Number"
                         value="1">
                 </label>
-                <label class="text-label">
+                <label class="text-label form-element">
                     <div>
                         Last Video Number:
                     </div>
                     <input type="text" name="index-end" id="index-end" placeholder="Leave Empty for all" value="">
                 </label>
             </div>
-            <label class="text-label">
+            <label class="text-label form-element">
                 <div>
-                    Pick Output Directory: <button id="pick-button">Pick</button>
+                    Pick Output Directory: <button id="pick-button" class="pick-button button">Pick</button>
                 </div>
                 <input type="text" required name="path" id="path" placeholder="Path to Output">
             </label>
-            <div class="control-buttons">
-                <button id="download-button">Download</button>
-                <button id="stop-button">Stop</button>
+            <div class="control-buttons form-element">
+                <button id="download-button" class="button">Download</button>
+                <button id="stop-button" class="button">Stop</button>
             </div>
         </form>
         <div class="progress-container">
-            <div id="progress-text" class="progress-text">Awaiting Input..</div>
+            <div id="progress-text" class="progress-text">Waiting:</div>
+            <div id="progress-text" class="progress-percentage"></div>
             <progress id="progress" class="progress" value="0" max="100">
         </div>
         <div class="error">
-            Sample Error
         </div>
     </main>
 </body>
