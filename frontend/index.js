@@ -14,3 +14,5 @@ UI.showOSPickButton();
 socket.on('error', IOHandlers.errorHandler);
 socket.on('progress',IOHandlers.progressHandler);
 socket.on('path-picked',IOHandlers.pathPickHandler);
+
+export {socket}

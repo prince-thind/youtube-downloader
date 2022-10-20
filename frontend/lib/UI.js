@@ -1,3 +1,5 @@
+import { socket } from "../index.js";
+
 const UI = {
     form: document.querySelector('#form'),
     radioButtons: document.querySelector('#radio-buttons'),
@@ -6,6 +8,7 @@ const UI = {
     downloadButton: document.querySelector('#download-button'),
     stopButton: document.querySelector('#stop-button'),
     progressContainer: document.querySelector('#progress-container'),
+    pathField: document.querySelector('#path'),
     error: document.querySelector('#error'),
     toggleIndexInputs,
     showOSPickButton,
@@ -46,14 +49,27 @@ function displayError(message) {
 
 function formSubmitHandler(e) {
     e.preventDefault();
+
+    const formData = Object.fromEntries(new FormData(e.target));
+
+    console.log(formData)
+    fetch("/", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
 }
 
 function stopClickHandler(e) {
     e.preventDefault();
+    socket.emit('stop');
 }
 
 function pickClickHandler(e) {
     e.preventDefault();
+    socket.emit('pick-path');
 }
 
 
