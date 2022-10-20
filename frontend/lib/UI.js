@@ -7,6 +7,7 @@ const UI = {
     stopButton: document.querySelector('#stop-button'),
     progressContainer: document.querySelector('#progress-container'),
     toggleIndexInputs,
+    showOSPickButton
 }
 
 function toggleIndexInputs(e) {
@@ -23,6 +24,13 @@ function toggleIndexInputs(e) {
             UI.indexInputs.classList.remove('disabled')
 
         }
+    }
+}
+
+function showOSPickButton() {
+    const isLinux = navigator.userAgent.toLowerCase().includes('linux');
+    if (!isLinux) {
+        UI.pickButton.style.display = 'none'
     }
 }
 
