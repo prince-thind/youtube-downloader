@@ -9,7 +9,10 @@ const UI = {
     error: document.querySelector('#error'),
     toggleIndexInputs,
     showOSPickButton,
-    displayError
+    displayError,
+    formSubmitHandler,
+    stopClickHandler,
+    pickClickHandler
 }
 
 function toggleIndexInputs(e) {
@@ -36,9 +39,22 @@ function showOSPickButton() {
     }
 }
 
-function displayError(message){
+function displayError(message) {
     UI.error.classList.remove('hidden')
-    UI.error.textContent=message;
+    UI.error.textContent = message;
 }
+
+function formSubmitHandler(e) {
+    e.preventDefault();
+}
+
+function stopClickHandler(e) {
+    e.preventDefault();
+}
+
+function pickClickHandler(e) {
+    e.preventDefault();
+}
+
 
 export default UI;

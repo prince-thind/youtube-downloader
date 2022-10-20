@@ -1,9 +1,16 @@
-import { errorHandler } from './lib/IO.js';
+import IOHandlers from './lib/IO.js';
 import UI from './lib/UI.js';
 
-const socket=io();
+const socket = io();
 
 UI.radioButtons.addEventListener('change', UI.toggleIndexInputs);
+
+UI.pickButton.addEventListener('click', UI.pickClickHandler)
+UI.form.addEventListener('submit', UI.formSubmitHandler)
+UI.stopButton.addEventListener('click', UI.stopClickHandler)
+
 UI.showOSPickButton();
 
-socket.on('error',errorHandler)
+socket.on('error', IOHandlers.errorHandler);
+socket.on('progress',IOHandlers.progressHandler);
+socket.on('path-picked',IOHandlers.pathPickHandler);
