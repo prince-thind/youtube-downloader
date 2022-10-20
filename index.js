@@ -20,3 +20,5 @@ app.get("/",(req,res)=>{
 })
 
 server.listen(3000);
+
+export {io}
