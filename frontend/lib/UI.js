@@ -6,8 +6,10 @@ const UI = {
     downloadButton: document.querySelector('#download-button'),
     stopButton: document.querySelector('#stop-button'),
     progressContainer: document.querySelector('#progress-container'),
+    error: document.querySelector('#error'),
     toggleIndexInputs,
-    showOSPickButton
+    showOSPickButton,
+    displayError
 }
 
 function toggleIndexInputs(e) {
@@ -32,6 +34,11 @@ function showOSPickButton() {
     if (!isLinux) {
         UI.pickButton.style.display = 'none'
     }
+}
+
+function displayError(message){
+    UI.error.classList.remove('hidden')
+    UI.error.textContent=message;
 }
 
 export default UI;
