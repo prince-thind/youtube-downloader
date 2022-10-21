@@ -52,7 +52,6 @@ function formSubmitHandler(e) {
 
     const formData = Object.fromEntries(new FormData(e.target));
 
-    console.log(formData)
     fetch("/", {
         method: 'POST',
         headers: {

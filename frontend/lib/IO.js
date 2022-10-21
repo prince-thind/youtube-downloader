@@ -9,12 +9,12 @@ function errorHandler(message) {
     UI.displayError(message)
 }
 
-function progressHandler({ message, percentage, displayPercentage }) {
+function progressHandler({ message, percentage, showPercentage }) {
     const progress = UI.progressContainer.querySelector('#progress');
     const progressText = UI.progressContainer.querySelector('.progress-text');
     const progressPercentage = UI.progressContainer.querySelector('.progress-percentage');
 
-    if (displayPercentage) {
+    if (showPercentage) {
         progressPercentage.textContent = `${percentage}%`
     }
     else {

@@ -3,6 +3,7 @@ import express from 'express';
 import http from 'http';
 import {Server} from 'socket.io';
 import IOConnectionHandler from './lib/IO.js';
+import processInput from './lib/processInput.js';
 
 const app=express();
 const server=http.createServer(app);
@@ -19,6 +20,18 @@ app.get("/",(req,res)=>{
     res.sendFile(path.resolve("./frontend/index.html"));
 })
 
+app.post("/",(req,res)=>{
+    processInput(req.body).catch(error=>{
+        console.error(error);
+        io.emit('error',error.message)
+    })
+})
+
 server.listen(3000);
 
 export {io}
+
+
+//todo
+// add disconnect reset
+// look for cross platform pick button
