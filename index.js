@@ -20,13 +20,15 @@ app.use(express.static(path.resolve("./frontend")))
 //     res.sendFile(path.resolve("./frontend/index.html"));
 // })
 
-app.post("/", (req, res) => {
-    processInput(req.body).catch(error => {
+app.post("/", async (req, res) => {
+    await processInput(req.body).catch(error => {
         console.error(error);
         io.emit('error', error.message);
         io.emit('progress', { message: 'Error', showPercentage: false, percentage: 0 })
 
-    })
+    });
+
+  return res.sendStatus(200)
 })
 
 server.listen(3000);
