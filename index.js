@@ -14,12 +14,11 @@ io.on('connection', IOConnectionHandler);
 
 
 app.use(express.json());
-app.use(express.static(path.resolve("./frontend/")))
+app.use(express.static(path.resolve("./frontend")))
 
-
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve("./frontend/index.html"));
-})
+// app.get("/", (req, res) => {
+//     res.sendFile(path.resolve("./frontend/index.html"));
+// })
 
 app.post("/", (req, res) => {
     processInput(req.body).catch(error => {
@@ -34,7 +33,7 @@ server.listen(3000);
 
 openApp();
 async function openApp() {
-   await open('http://localhost:3000');
+    await open('http://localhost:3000');
 }
 
 
