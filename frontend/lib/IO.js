@@ -14,6 +14,10 @@ function progressHandler({ message, percentage, showPercentage }) {
     const progressText = UI.progressContainer.querySelector('.progress-text');
     const progressPercentage = UI.progressContainer.querySelector('.progress-percentage');
 
+    if (percentage != null) {
+        percentage = percentage.toFixed(2);
+    }
+
     if (showPercentage) {
         progressPercentage.textContent = `${percentage}%`
     }
