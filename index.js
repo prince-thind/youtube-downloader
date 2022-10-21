@@ -42,5 +42,4 @@ export { io }
 
 
 //todo
-// add disconnect reset
 // look for cross platform pick button

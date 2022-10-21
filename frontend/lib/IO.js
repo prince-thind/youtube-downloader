@@ -1,7 +1,7 @@
 import UI from "./UI.js"
 
 const IOHandlers = {
-    errorHandler, progressHandler, pathPickHandler, clearErrorHandler
+    errorHandler, progressHandler, pathPickHandler, clearErrorHandler, disconnectHandler
 
 }
 function errorHandler(message) {
@@ -36,6 +36,10 @@ function pathPickHandler(path) {
 
 function clearErrorHandler(){
     UI.displayError("");
+}
+
+function disconnectHandler(){
+    UI.displayError("backend disconnected!");
 }
 
 export default IOHandlers;

@@ -15,5 +15,7 @@ socket.on('error', IOHandlers.errorHandler);
 socket.on('clear-error', IOHandlers.clearErrorHandler);
 socket.on('progress', IOHandlers.progressHandler);
 socket.on('path-picked', IOHandlers.pathPickHandler);
+socket.on('disconnect', IOHandlers.disconnectHandler);
+socket.on('connect', IOHandlers.clearErrorHandler);
 
 export { socket }
