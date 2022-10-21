@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import http from 'http';
+import open from 'open';
 import { Server } from 'socket.io';
 import IOConnectionHandler from './lib/IO.js';
 import processInput from './lib/processInput.js';
@@ -30,6 +31,12 @@ app.post("/", (req, res) => {
 })
 
 server.listen(3000);
+
+openApp();
+async function openApp() {
+   await open('http://localhost:3000');
+}
+
 
 export { io }
 
