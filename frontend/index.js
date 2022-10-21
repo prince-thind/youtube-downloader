@@ -12,7 +12,8 @@ UI.stopButton.addEventListener('click', UI.stopClickHandler)
 UI.showOSPickButton();
 
 socket.on('error', IOHandlers.errorHandler);
-socket.on('progress',IOHandlers.progressHandler);
-socket.on('path-picked',IOHandlers.pathPickHandler);
+socket.on('clear-error', IOHandlers.clearErrorHandler);
+socket.on('progress', IOHandlers.progressHandler);
+socket.on('path-picked', IOHandlers.pathPickHandler);
 
-export {socket}
+export { socket }

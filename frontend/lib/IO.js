@@ -1,7 +1,7 @@
 import UI from "./UI.js"
 
 const IOHandlers = {
-    errorHandler, progressHandler, pathPickHandler
+    errorHandler, progressHandler, pathPickHandler, clearErrorHandler
 
 }
 function errorHandler(message) {
@@ -32,6 +32,10 @@ function progressHandler({ message, percentage, showPercentage }) {
 
 function pathPickHandler(path) {
     UI.pathField.value = path;
+}
+
+function clearErrorHandler(){
+    UI.displayError("");
 }
 
 export default IOHandlers;
