@@ -33,16 +33,15 @@ app.post("/", async (req, res) => {
         state.downloading = false;
         state.stream = null;
         return res.sendStatus(500);
-    };
+    }
 })
 
 server.listen(3000);
 
 if (process.argv[2] !== 'development') {
-    openApp();
-    async function openApp() {
+    (async () => {
         await open('http://localhost:3000');
-    }
+    })()
 }
 
 

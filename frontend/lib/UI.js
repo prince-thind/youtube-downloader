@@ -18,8 +18,8 @@ const UI = {
     pickClickHandler
 }
 
-function toggleIndexInputs(e) {
-    const type = e.target.value;
+function toggleIndexInputs() {
+    const type = UI.form.elements.type.value;
     const inputFields = [...UI.indexInputs.querySelectorAll('input')];
 
     for (const field of inputFields) {
