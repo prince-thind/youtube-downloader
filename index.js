@@ -46,7 +46,7 @@ if (process.argv[2] !== 'development') {
 
 
 
-export { io }
+export { io, server }
 
 
 //todo
